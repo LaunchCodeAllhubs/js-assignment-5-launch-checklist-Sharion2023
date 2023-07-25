@@ -29,7 +29,9 @@ console.log(validateInput(8))
 console.log("hello!")
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+   const pilot = document.getElementById("pilot")
+   const copilot= document.getElementById("copilot")
+   const fuelLevel = document.g
 }
 
 async function myFetch() {
