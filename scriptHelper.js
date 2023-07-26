@@ -16,6 +16,13 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
+function giveAlert(){
+    let form = document.querySelector("form");
+    form.addEventListener("submit", function(event){
+        alert("All fields are required")
+    });
+}
+
 function validateInput(testInput) {
    if (NaN(testInput)){
     return "Not a Number";
@@ -25,14 +32,17 @@ function validateInput(testInput) {
     return "Empty";
    }
 }
-console.log(validateInput(8))
-console.log("hello!")
+
+const pilot = document.querySelector("input[name:pilotName]")
+const copilot= document.querySelector("input[name:copilotName]")
+const fuelLevel = document.querySelector("input[name:fuelLevel]")
+const cargoLevel = document.querySelector("input[name:cargoMass]")
+const list = document.getElementById("input[name:faultyItems]")
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   const pilot = document.getElementById("pilot")
-   const copilot= document.getElementById("copilot")
-   const fuelLevel = document.g
+    
 }
+formSubmission(document, list, "Bob", "Another Bob", 12, 11)
 
 async function myFetch() {
     let planetsReturned;
