@@ -1,7 +1,10 @@
 // Write your JavaScript code here!
 
-window.addEventListener("load", function() {
 
+
+window.addEventListener("load", function() {
+    formSubmission()
+    validateInput(17)
     giveAlert();
 
    let listedPlanets;
