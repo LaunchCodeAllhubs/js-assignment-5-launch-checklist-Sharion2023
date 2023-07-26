@@ -4,7 +4,10 @@
 
 window.addEventListener("load", function() {
     formSubmission()
-    validateInput(17)
+    validateInput()
+    console.log("Blah")
+    list = document.getElementById("faultyItems")
+    console.log(list)
     giveAlert();
 
    let listedPlanets;

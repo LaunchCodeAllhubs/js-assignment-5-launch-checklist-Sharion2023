@@ -35,22 +35,23 @@ function validateInput(testInput) {
    }
 }
 
-const pilot = document.querySelector("input[name:pilotName]")
-const copilot= document.querySelector("input[name:copilotName]")
-const fuelLevel = document.querySelector("input[name:fuelLevel]")
-const cargoLevel = document.querySelector("input[name:cargoMass]")
-const list = document.getElementById("faultyItems")
+    
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    console.log("here")
-   function validateInput(pilot){
+    pilot = document.querySelector("input[name:pilotName]")
+    copilot = document.querySelector("input[name:copilotName]")
+    fuelLevel = document.querySelector("input[name:fuelLevel]")
+    cargoLevel = document.querySelector("input[name:cargoMass]")
+    list = document.getElementById("faultyItems")
+    //console.log(list)
+    /*function validateInput(pilot){
     console.log("here")
 
         if(pilot !==("Not a Number")){
             console.log("here")
             alert("Please enter a valid response")
         }
-   } 
+   } */
 }
 
 async function myFetch() {
