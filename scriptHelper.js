@@ -37,12 +37,19 @@ const pilot = document.querySelector("input[name:pilotName]")
 const copilot= document.querySelector("input[name:copilotName]")
 const fuelLevel = document.querySelector("input[name:fuelLevel]")
 const cargoLevel = document.querySelector("input[name:cargoMass]")
-const list = document.getElementById("input[name:faultyItems]")
+const list = document.getElementById("faultyItems")
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    
+    console.log("here")
+    /*if(validateInput(pilot) !== "Not a Number") {
+       let form = document.querySelector("form");
+    form.addEventListener("submit", function(event){
+        alert("Please enter a name.")
+    })
+}*/
 }
-formSubmission(document, list, "Bob", "Another Bob", 12, 11)
+
+
 
 async function myFetch() {
     let planetsReturned;
