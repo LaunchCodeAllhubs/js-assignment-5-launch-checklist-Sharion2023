@@ -2,60 +2,95 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-   // Here is the HTML formatting for our mission target div.
-   /*
-                <h2>Mission Destination</h2>
-                <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
-                    <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
-                </ol>
-                <img src="">
-   */
+    // Here is the HTML formatting for our mission target div.
+    /*
+                 <h2>Mission Destination</h2>
+                 <ol>
+                     <li>Name: </li>
+                     <li>Diameter: </li>
+                     <li>Star: ${star}</li>
+                     <li>Distance from Earth: </li>
+                     <li>Number of Moons: </li>
+                 </ol>
+                 <img src="">
+    */
 }
 
-function giveAlert(){
+function giveAlert() {
     let form = document.querySelector("form");
-    form.addEventListener("submit", function(event){
+    form.addEventListener("submit", function (event) {
         alert("All fields are required")
     });
 }
 
 function validateInput(testInput) {
-   if (NaN(testInput)){
-    return "Not a Number";
-   } else if (!(NaN(testInput))) {
-   return "Is a Number";
-   } else if (testInput === ""){
-    return "Empty";
-   }
+    if (isNaN(testInput)) {
+        return "Not a Number";
+    } else if (!(isNaN(testInput))) {
+        return "Is a Number";
+    } else if (testInput === "") {
+        return "Empty";
+    }
 }
 
-const pilot = document.querySelector("input[name:pilotName]")
-const copilot= document.querySelector("input[name:copilotName]")
-const fuelLevel = document.querySelector("input[name:fuelLevel]")
-const cargoLevel = document.querySelector("input[name:cargoMass]")
-const list = document.getElementById("faultyItems")
+
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+    list.style.visibility = 'visible'
     console.log("here")
-    /*if(validateInput(pilot) !== "Not a Number") {
-       let form = document.querySelector("form");
-    form.addEventListener("submit", function(event){
-        alert("Please enter a name.")
-    })
-}*/
-}
+    console.log(document.title)
+    console.log(list)
+    let pilotStatus = document.getElementById("pilotStatus")
+    let copilotStatus= document.getElementById("copilotStatus")
+    let fuelStatus = document.getElementById("fuelStatus")
+    let cargoStatus = document.getElementById("cargoStatus")
+    pilotStatus.innerHTML = `${pilot.value} is ready`
+    console.log(pilot.value)
+    console.log(copilot.value)
+    console.log(pilotStatus.innerHTML)
+    if(validateInput(pilot.value) === "Is a Number"){
+        alert("Make sure to enter valid information for each field!")
+    }
+    
+    
+    
+    
+   /* strings = [pilot, copilot]
+    integers = [fuelLevel, cargoLevel]
 
+       //for(let i=0; i < strings.length; i++){
+           window.addEventListener("submit", function(event){
+            validateInput(pilot)
+            if(pilot !== "Not a Number"){
+                alert("Please enter a valid response!")
+            }
+           }) */
+     //   }
+        
+       /* for(let i=0; i < integers.length; i++){
+            validateInput(integers)
+            if(strings[i] !== "Is a Number"){
+                alert("Please enter a valid response!")
+            }
+        }*/
 
+    }
+    
+    //console.log(list)
+    /*function validateInput(pilot){
+    console.log("here")
+
+        if(pilot !==("Not a Number")){
+            console.log("here")
+            alert("Please enter a valid response")
+        }
+   } */
 
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
-        });
+    planetsReturned = await fetch().then(function (response) {
+    });
 
     return planetsReturned;
 }
@@ -66,5 +101,5 @@ function pickPlanet(planets) {
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
-module.exports.pickPlanet = pickPlanet; 
+module.exports.pickPlanet = pickPlanet;
 module.exports.myFetch = myFetch;
