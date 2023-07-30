@@ -16,75 +16,89 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     */
 }
 
-function giveAlert() {
-    let form = document.querySelector("form");
-    form.addEventListener("submit", function (event) {
+/*function giveAlert() {
+   // let form = document.querySelector("form");
+    document.addEventListener("submit", function (event) {
+        console.log("here")
+        if(pilot==="Empty" ){
         alert("All fields are required")
+        event.preventDefault();
+        }
     });
-}
+}*/
 
 function validateInput(testInput) {
-    if (isNaN(testInput)) {
-        return "Not a Number";
+   
+    if (testInput === "") {
+        return("Empty");
+    } else if (isNaN(testInput)) {
+        return "Not a Number"; 
     } else if (!(isNaN(testInput))) {
-        return "Is a Number";
-    } else if (testInput === "") {
-        return "Empty";
-    }
+        return "Is a Number"
+     } 
+       //if(outcome ==="Is a Number" ){
+        //alert("All fields are required")
+         //   console.log("there")
+        //}
 }
 
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     list.style.visibility = 'visible'
-    console.log("here")
-    console.log(document.title)
-    console.log(list)
+    console.log(pilot)
+    if(validateInput(pilot) === "Empty"){
+        alert("All fields must be filled. Enter pilot info")
+    } else if (validateInput(pilot) === "Is a Number"){
+        console.log("this spot")
+        alert("Please enter a pilot valid name.")
+        pilot = ""
+    } else if (validateInput(pilot) === "Not a Number") {
+       pilot = pilot
+    }
+
+   if(validateInput(copilot) === "Empty"){
+    alert("All fields must be filled. Enter copilot info")
+    } else if (validateInput(copilot) === "Is a Number"){
+    console.log("this spot")
+    alert("Please enter a copilot valid name.")
+    copilot = ""
+    } else if (validateInput(copilot) === "Not a Number") {
+   copilot = copilot
+    }
+
+    if(validateInput(fuelLevel) === "Empty"){
+        alert("All fields must be filled. Enter fuel level info")
+        } else if (validateInput(fuelLevel) === "Not a Number"){
+        console.log("this spot")
+        alert("Please valid fuel level info.")
+        fuelLevel = ""
+        } else if (validateInput(fuelLevel) === "Is a Number") {
+       fuelLevel = fuelLevel
+        }
+
+    if(validateInput(cargoLevel) === "Empty"){
+       alert("All fields must be filled. Enter cargo level info")
+         } else if (validateInput(cargoLevel) === "Not a Number"){
+        console.log("this spot")
+         alert("Please valid cargo level info.")
+        cargoLevel = ""
+         } else if (validateInput(cargoLevel) === "Is a Number") {
+        cargoLevel = cargoLevel
+        }
+    //console.log(pilot)
+     //console.log(copilot)
+    
     let pilotStatus = document.getElementById("pilotStatus")
     let copilotStatus= document.getElementById("copilotStatus")
     let fuelStatus = document.getElementById("fuelStatus")
     let cargoStatus = document.getElementById("cargoStatus")
-    pilotStatus.innerHTML = `${pilot.value} is ready`
-    console.log(pilot.value)
-    console.log(copilot.value)
-    console.log(pilotStatus.innerHTML)
-    if(validateInput(pilot.value) === "Is a Number"){
-        alert("Make sure to enter valid information for each field!")
-    }
-    
-    
-    
-    
-   /* strings = [pilot, copilot]
-    integers = [fuelLevel, cargoLevel]
+    pilotStatus.innerHTML = `${pilot} is ready`
 
-       //for(let i=0; i < strings.length; i++){
-           window.addEventListener("submit", function(event){
-            validateInput(pilot)
-            if(pilot !== "Not a Number"){
-                alert("Please enter a valid response!")
-            }
-           }) */
-     //   }
+
         
-       /* for(let i=0; i < integers.length; i++){
-            validateInput(integers)
-            if(strings[i] !== "Is a Number"){
-                alert("Please enter a valid response!")
-            }
-        }*/
-
     }
     
-    //console.log(list)
-    /*function validateInput(pilot){
-    console.log("here")
-
-        if(pilot !==("Not a Number")){
-            console.log("here")
-            alert("Please enter a valid response")
-        }
-   } */
 
 async function myFetch() {
     let planetsReturned;

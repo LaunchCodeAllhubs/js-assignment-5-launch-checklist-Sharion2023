@@ -1,20 +1,30 @@
 // Write your JavaScript code here!
 
+
 window.addEventListener("load", function() {
 
     
     addEventListener("submit", function(event){
-        event.preventDefault()
-        giveAlert();
+               
+        
             list =document.getElementById("faultyItems")
-            pilot = document.querySelector("input[name=pilotName]")
-            copilot = document.querySelector("input[name=copilotName]")
-            fuelLevel = document.querySelector("input[name=fuelLevel]")
-            cargoLevel = document.querySelector("input[name=cargoMass]") 
-            formSubmission(document,list, pilot, copilot, fuelLevel, cargoLevel)
-            
-    })
+            pilot = document.querySelector("input[name=pilotName]").value
+            copilot = document.querySelector("input[name=copilotName]").value
+            fuelLevel = document.querySelector("input[name=fuelLevel]").value
+            cargoLevel = document.querySelector("input[name=cargoMass]").value
+        
+            //validateInput(pilot)
+            //giveAlert();
+          
+          
+        })
+          //
     //not validating correctly
+    addEventListener("submit", function(event){
+        event.preventDefault(formSubmission(document,list, pilot, copilot, fuelLevel, cargoLevel))
+        
+    })
+
     
 
    let listedPlanets;
@@ -31,4 +41,5 @@ window.addEventListener("load", function() {
    
 
 })
+
    
