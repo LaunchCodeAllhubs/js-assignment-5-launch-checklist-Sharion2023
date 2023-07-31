@@ -16,88 +16,83 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     */
 }
 
-/*function giveAlert() {
-   // let form = document.querySelector("form");
-    document.addEventListener("submit", function (event) {
-        console.log("here")
-        if(pilot==="Empty" ){
-        alert("All fields are required")
-        event.preventDefault();
-        }
-    });
-}*/
-
 function validateInput(testInput) {
    
     if (testInput === "") {
+        console.log("Spot 1")
         return("Empty");
     } else if (isNaN(testInput)) {
         return "Not a Number"; 
     } else if (!(isNaN(testInput))) {
         return "Is a Number"
      } 
-       //if(outcome ==="Is a Number" ){
-        //alert("All fields are required")
-         //   console.log("there")
-        //}
-}
+    }
 
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    list.style.visibility = 'visible'
+    //list.style.visibility = 'visible';
     console.log(pilot)
-    if(validateInput(pilot) === "Empty"){
-        alert("All fields must be filled. Enter pilot info")
-    } else if (validateInput(pilot) === "Is a Number"){
-        console.log("this spot")
-        alert("Please enter a pilot valid name.")
-        pilot = ""
-    } else if (validateInput(pilot) === "Not a Number") {
-       pilot = pilot
+    
+   
+   if(validateInput(pilot) !== "Not a Number" ){
+    alert("Please enter a valid pilot name")
+        validateInput(pilot)                 
+    } else{        
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready.` 
     }
+    console.log(pilot)
 
-   if(validateInput(copilot) === "Empty"){
-    alert("All fields must be filled. Enter copilot info")
-    } else if (validateInput(copilot) === "Is a Number"){
-    console.log("this spot")
-    alert("Please enter a copilot valid name.")
-    copilot = ""
-    } else if (validateInput(copilot) === "Not a Number") {
-   copilot = copilot
+    if(validateInput(copilot) !== "Not a Number"){
+        alert("Please enter a valid copilot name")
+        validateInput(copilot)                     
+    } else{
+        copilotStatus.innerHTML = `Copilot ${copilot} is ready.` 
     }
+    console.log(copilot)
 
-    if(validateInput(fuelLevel) === "Empty"){
-        alert("All fields must be filled. Enter fuel level info")
-        } else if (validateInput(fuelLevel) === "Not a Number"){
-        console.log("this spot")
-        alert("Please valid fuel level info.")
-        fuelLevel = ""
-        } else if (validateInput(fuelLevel) === "Is a Number") {
-       fuelLevel = fuelLevel
+   if(validateInput(fuelLevel) !== "Is a Number"){
+        alert("Please enter a valid fuel level number")
+        validateInput(fuelLevel)
+    } else if(fuelLevel< 10000){
+        fuelStatus.innerHTML = "Fuel level too low for launch"
+        list.style.visibility = 'visible';
+        launchStatus.style.color=  "red";
+        launchStatus.innerHTML = `Shuttle not ready for launch`;
+    }
+       // list.style.visibility = 'visible';
+        console.log("there")
+    
+    if(validateInput(cargoLevel) !== "Is a Number"){
+        alert("Please enter a valid cargo level number")
+         validateInput(cargoLevel)
+        } else if(cargoLevel > 10000){             
+             cargoStatus.innerHTML = "Cargo mass too heavy for launch"
+             list.style.visibility = 'visible';
+             launchStatus.innerHTML = `Shuttle not ready for launch`;
+             launchStatus.style.color= "#C7254E"
         }
+       
+        if(validateInput(pilot) === "Not a Number" && validateInput(copilot) === "Not a Number" &&
+        validateInput(cargoLevel) === "Is a Number" && validateInput(fuelLevel) === "Is a Number") {
+        launchStatus.style.color = "#419F6A"
+        launchStatus.innerHTML = `Shuttle is ready for launch`;
 
-    if(validateInput(cargoLevel) === "Empty"){
-       alert("All fields must be filled. Enter cargo level info")
-         } else if (validateInput(cargoLevel) === "Not a Number"){
-        console.log("this spot")
-         alert("Please valid cargo level info.")
-        cargoLevel = ""
-         } else if (validateInput(cargoLevel) === "Is a Number") {
-        cargoLevel = cargoLevel
-        }
+    }
+    }
+    //
+    
+    //&& validateInput(cargoLevel) === "Is Number"
     //console.log(pilot)
      //console.log(copilot)
     
-    let pilotStatus = document.getElementById("pilotStatus")
-    let copilotStatus= document.getElementById("copilotStatus")
-    let fuelStatus = document.getElementById("fuelStatus")
-    let cargoStatus = document.getElementById("cargoStatus")
-    pilotStatus.innerHTML = `${pilot} is ready`
+
+    
+    
+    
+    
 
 
-        
-    }
     
 
 async function myFetch() {
