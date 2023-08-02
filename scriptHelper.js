@@ -19,7 +19,6 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 function validateInput(testInput) {
    
     if (testInput === "") {
-        console.log("Spot 1")
         return("Empty");
     } else if (isNaN(testInput)) {
         return "Not a Number"; 
@@ -70,10 +69,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     
 }
-    
-    
-    
-    
+      
     
     
 
@@ -83,13 +79,18 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        return response.json()            
         });
-
-    return planetsReturned;
+        return planetsReturned;        
+    
 }
 
+
 function pickPlanet(planets) {
+    let index = Math.floor(Math.random()*planets.length);
+    console.log(planets[index])
+   return planets[index];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
