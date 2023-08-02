@@ -32,8 +32,27 @@ window.addEventListener("load", function() {
         }).then(function () {
             console.log(listedPlanets);
             // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-        pickPlanet(listedPlanets)
-        //console.log
+       //pickPlanet(listedPlanets)
+        console.log(pickPlanet(listedPlanets).name)
+        //console.log(planets[index])
+       let name = pickPlanet(listedPlanets).name
+        let diameter =pickPlanet(listedPlanets).diameter
+        let star = pickPlanet(listedPlanets).star
+        let distance = pickPlanet(listedPlanets).distance
+        let moons = pickPlanet(listedPlanets).moons
+        let imageUrl = pickPlanet(listedPlanets).image
+        let missionTarget = document.getElementById("missionTarget")
+       //addDestinationInfo(name, diameter, star, distance, moons, imageUrl)
+       missionTarget.innerHTML = `
+       <h2>Mission Destination</h2>
+       <ol>
+          <li>Name: ${name} </li>
+           <li>Diameter: ${diameter} </li>
+           <li>Star: ${star}</li>
+           <li>Distance from Earth: ${distance} </li>
+           <li>Number of Moons: ${moons}</li>
+       </ol>
+       <img src= ${imageUrl}>`
         })
 
    
