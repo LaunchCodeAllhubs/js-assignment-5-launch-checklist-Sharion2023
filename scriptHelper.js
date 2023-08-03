@@ -74,6 +74,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.style.visibility = 'visible';
         pilotStatus.innerHTML = `Pilot ${pilot} is ready.`  
         copilotStatus.innerHTML = `Copilot ${copilot} is ready.`
+        cargoStatus.innerHTML = "Cargo mass low enough for launch"
+        fuelStatus.innerHTML = "Fuel level high enough for launch"
 
     }
 
