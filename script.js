@@ -13,11 +13,7 @@ window.addEventListener("load", function() {
         copilot = document.querySelector("input[name=copilotName]").value
         fuelLevel = document.querySelector("input[name=fuelLevel]").value
         cargoLevel = document.querySelector("input[name=cargoMass]").value
-        let launchStatus = document.getElementById("launchStatus")
-        let pilotStatus = document.getElementById("pilotStatus")
-         let copilotStatus= document.getElementById("copilotStatus")
-        let fuelStatus = document.getElementById("fuelStatus")
-        let cargoStatus = document.getElementById("cargoStatus")
+        
 
         event.preventDefault(formSubmission(document,list, pilot, copilot, fuelLevel, cargoLevel))
           
