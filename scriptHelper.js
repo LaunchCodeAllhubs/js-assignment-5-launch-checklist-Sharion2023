@@ -3,7 +3,7 @@ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    
+        let missionTarget = document.getElementById("missionTarget")
 
         missionTarget.innerHTML = `
         <h2>Mission Destination</h2>
@@ -48,8 +48,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    || validateInput(cargoLevel)!== "Is a Number") {
     alert("Please enter valid info")
    }
-   
-   if(fuelLevel < 10000 && validateInput(pilot)==="Not a Number" && validateInput(copilot)==="Not a Number" ){
+   else{
+   if(fuelLevel < 10000 ){
     pilotStatus.innerHTML = `Pilot ${pilot} is ready.`  
     copilotStatus.innerHTML = `Copilot ${copilot} is ready.`
     fuelStatus.innerHTML = "Fuel level too low for launch"
@@ -58,7 +58,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     launchStatus.innerHTML = `Shuttle not ready for launch`;
     }
 
-    if(cargoLevel > 10000 && validateInput(pilot)==="Not a Number" && validateInput(copilot)==="Not a Number" ){ 
+    if(cargoLevel > 10000 ){ 
      pilotStatus.innerHTML = `Pilot ${pilot} is ready.` 
     copilotStatus.innerHTML = `Copilot ${copilot} is ready.`            
     cargoStatus.innerHTML = "Cargo mass too heavy for launch"
@@ -67,8 +67,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     launchStatus.style.color= "#C7254E"
     }
 
-    if( validateInput(pilot) === "Not a Number" && validateInput(copilot) === "Not a Number" && fuelLevel >=10000 &&
-    cargoLevel <10000) {
+    if(fuelLevel >=10000 && cargoLevel <= 10000) {
         launchStatus.innerHTML = "Shuttle is ready for launch";
         launchStatus.style.color = "#419f6A"
         list.style.visibility = 'visible';
@@ -78,6 +77,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         fuelStatus.innerHTML = "Fuel level high enough for launch"
 
     }
+}
 
 
     
@@ -102,7 +102,7 @@ async function myFetch() {
 
 function pickPlanet(planets) {
     let index = Math.floor(Math.random()*planets.length);
-    //console.log(planets[index])
+    
     return planets[index];
 }
 
